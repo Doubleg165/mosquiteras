@@ -40,3 +40,7 @@ Las modificaciones de tarifas se conservan en localStorage en este navegador. No
 El PDF indica dólares y precios sin IVA; no indica el porcentaje. La interfaz permite ajustar el IVA (21% inicial pendiente de confirmar). No se aplican recargos inventados por color ni descuentos: se consultan con el vendedor. Se admite un texto libre de color deseado. No incluye instalación ni envío.
 
 Permite imprimir o guardar PDF desde el navegador, incluso una selección con precios pendientes. Tipografías externas opcionales con fuentes locales de respaldo.
+
+## Identidad visual
+
+Logo original de Aluplexa extraído sin modificaciones del PDF proporcionado, conservado en `assets/aluplexa-logo.png`. Interfaz con verde, negro y blanco de la identidad visible en el logo; tipografía del sistema sin descargas externas. Se incluyen vistas móviles y estilos de impresión. La web de la marca no pudo consultarse por restricciones de red durante esta adaptación; el diseño se basa en el material de marca del PDF, sin afirmar que reproduce la web actual.
