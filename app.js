@@ -1,9 +1,10 @@
+import { defaultPrices } from './prices.js';
 import { calculate, totals } from './calculator.js';
 import { catalog, productById, bandKey } from './catalog.js';
 const $ = id => document.getElementById(id);
 const money = cents => cents === null ? 'Pendiente' : new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'USD', currencyDisplay: 'code' }).format(cents / 100);
-let items = [], prices = {};
-try { const saved = JSON.parse(localStorage.getItem('catalog-prices-v1')); if (saved && typeof saved === 'object' && !Array.isArray(saved)) prices = saved; } catch {}
+let items = [], prices = { ...defaultPrices };
+try { const saved = JSON.parse(localStorage.getItem('catalog-prices-v1')); if (saved && typeof saved === 'object' && !Array.isArray(saved)) prices = { ...defaultPrices, ...saved }; } catch {}
 for (const family of new Set(catalog.map(p => p.family))) $('family').add(new Option(family, family));
 function selectFamily() {
  $('model').replaceChildren();
@@ -27,7 +28,7 @@ function selectModel() {
   if (typeof prices[key] === 'number' && prices[key] > 0) input.value = prices[key];
   input.addEventListener('change', () => {
    if (!input.checkValidity()) { input.reportValidity(); return; }
-   if (!input.value) delete prices[key]; else prices[key] = Number(input.value);
+   if (!input.value) prices[key] = null; else prices[key] = Number(input.value);
    try { localStorage.setItem('catalog-prices-v1', JSON.stringify(prices)); } catch { $('error').textContent = 'No se pudieron guardar las tarifas en este navegador.'; }
   });
   td.append(input); tr.append(td); $('price-rows').append(tr);

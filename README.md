@@ -29,11 +29,13 @@ Los ejes de las tablas enrollables no están rotulados en el PDF. Se interpreta 
 
 `catalog.js` contiene 310 combinaciones de tramos: 23 de plisadas y 287 de enrollables. Se selecciona el tramo de menor superficie que cubra ambas medidas, sin girarlas. Cada precio corresponde al tramo por unidad, sin mínimo inventado de m² ni interpolación de precios.
 
-## Precios pendientes
+## Precios del PDF
 
-No se utilizan las tarifas del PDF de 2025 ni los antiguos precios de ejemplo. En la sección de tarifas se puede introducir el precio real sin IVA, en USD, de cada tramo del modelo seleccionado. Importes sin configurar muestran «Pendiente»; si hay líneas sin precio, todo el total queda pendiente.
+`prices.js` incluye las 310 tarifas del PDF de 2025 en USD por unidad, sin IVA. Se cargan automáticamente en cualquier navegador. Se pueden editar o vaciar en pantalla; vaciar una tarifa la deja pendiente. Los cambios locales prevalecen sobre las tarifas del PDF. Si alguna línea no tiene precio, el total queda pendiente.
 
-Las tarifas se conservan en localStorage en este navegador. No se sincronizan con otros dispositivos ni se suben a GitHub. Las líneas ya añadidas conservan su tarifa: para aplicar un precio cambiado hay que eliminar la línea y añadirla de nuevo. Los presupuestos se vacían al recargar. No hay backend.
+Se conserva el valor de USD 153 para la enrollable vertical de 2000 × 2200 mm tal como aparece en el documento, aunque podría ser una errata por ser menor que algunos tramos inferiores. Confirmar con el proveedor antes de usar ese tramo.
+
+Las modificaciones de tarifas se conservan en localStorage en este navegador. No se sincronizan con otros dispositivos ni se suben a GitHub. Las tarifas originales sí están incluidas en el código. Las líneas ya añadidas conservan su tarifa: para aplicar un precio cambiado hay que eliminar la línea y añadirla de nuevo. Los presupuestos se vacían al recargar. No hay backend.
 
 El PDF indica dólares y precios sin IVA; no indica el porcentaje. La interfaz permite ajustar el IVA (21% inicial pendiente de confirmar). No se aplican recargos inventados por color ni descuentos: se consultan con el vendedor. Se admite un texto libre de color deseado. No incluye instalación ni envío.
 

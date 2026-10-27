@@ -1,5 +1,5 @@
 // Fuente: LISTA PRECIOS MOSQUITERAS 2025.pdf. Medidas en mm.
-// Precios deliberadamente pendientes. Ejes de enrollables confirmados por el usuario.
+// Tarifas del PDF en prices.js. Ejes de enrollables confirmados por el usuario.
 const bands = pairs => pairs.map(([width, height]) => ({ width, height }));
 const grid = (widths, heights) => widths.flatMap(width => heights.map(height => ({ width, height })));
 const sequence = (start, end, step) => Array.from({ length: (end - start) / step + 1 }, (_, i) => start + i * step);
