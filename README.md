@@ -43,4 +43,4 @@ Permite imprimir o guardar PDF desde el navegador, incluso una selección con pr
 
 ## Identidad visual
 
-Logo original de Aluplexa extraído sin modificaciones del PDF proporcionado, conservado en `assets/aluplexa-logo.png`. Interfaz con verde, negro y blanco de la identidad visible en el logo; tipografía del sistema sin descargas externas. Se incluyen vistas móviles y estilos de impresión. La web de la marca no pudo consultarse por restricciones de red durante esta adaptación; el diseño se basa en el material de marca del PDF, sin afirmar que reproduce la web actual.
+Logo original PNG transparente de Aluplexa proporcionado por el usuario (2084 × 730), conservado sin modificaciones en `assets/aluplexa-logo.png`. Interfaz con verde, negro y blanco de la identidad visible en el logo; tipografía del sistema sin descargas externas. Se incluyen vistas móviles y estilos de impresión. La web de la marca no pudo consultarse por restricciones de red durante esta adaptación; el diseño se basa en el material de marca del PDF, sin afirmar que reproduce la web actual.

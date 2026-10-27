@@ -1,5 +1,5 @@
-import { defaultPrices } from './prices.js?v=aluplexa-contrast-20261027';
-import { productById, bandKey } from './catalog.js?v=aluplexa-contrast-20261027';
+import { defaultPrices } from './prices.js?v=aluplexa-logo-final-20261027';
+import { productById, bandKey } from './catalog.js?v=aluplexa-logo-final-20261027';
 export function calculate({ type, width, height, quantity, prices = defaultPrices, color = '' }) {
  const product = productById(type);
  if (!product || ![width,height,quantity].every(Number.isFinite) || width <= 0 || height <= 0 || !Number.isInteger(width) || !Number.isInteger(height) || !Number.isInteger(quantity) || quantity < 1 || quantity > 100) throw new Error('Introduce medidas enteras positivas en mm y una cantidad entre 1 y 100.');
