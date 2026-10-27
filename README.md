@@ -1,13 +1,40 @@
 # mosquiteras
-Calculador de presupuestos en español, adaptable a móviles y sin dependencias de instalación.
+
+Calculador en español, adaptable a móviles, sin dependencias de instalación.
 
 ## Desarrollo
 
 Requiere Python 3 y Node.js 18+ para las pruebas.
 
 - `npm start`: sirve la aplicación en el puerto 3000.
-- `npm test`: verifica cálculo de superficie, mínimo facturable, acabados, cantidades e IVA.
+- `npm test`: valida los límites del catálogo, selección de tramos, precios pendientes, cantidades e IVA.
 
-Tarifas iniciales de ejemplo: fija 45 €/m², enrollable 75 €/m², corredera 60 €/m². Editables en pantalla, guardadas en el navegador. Superficie mínima: 1 m² por unidad; antracita +15%, madera +25%; IVA 21%. Las líneas ya añadidas conservan su tarifa. Medidas admitidas: 20–300 cm; cantidades: 1–100.
+## Catálogo
 
-Permite añadir y eliminar líneas e imprimir o guardar el presupuesto como PDF desde el navegador. No incluye envío ni instalación. Los presupuestos son temporales y se vacían al recargar. No hay backend ni se envían datos a un servidor. Las tipografías de Google son opcionales: hay fuentes locales de respaldo.
+Fuente: `LISTA PRECIOS MOSQUITERAS 2025.pdf`, proporcionado por el usuario. Las medidas se introducen como milímetros enteros positivos. No se inventa un mínimo de fabricación: medidas inferiores al primer tramo se asignan a ese tramo y quedan sujetas a confirmación comercial.
+
+| Familia | Modelo | Máximo ancho × alto (mm) | Página |
+| --- | --- | --- | --- |
+| Plisada 22 mm | 1 hoja | 1600 × 2550 | 1 |
+| Plisada 22 mm | Doble bilateral | 3000 × 2800 | 1 |
+| Plisada 22 mm | Doble central | 3200 × 2550 | 1 |
+| Plisada MT 40 | 1 hoja | 1600 × 3000 | 1 |
+| Plisada MT 40 | Doble central y/o lateral | 3200 × 3000 | 2 |
+| Plisada MT 40 | Triple lateral | 4800 × 3000 | 2 |
+| Enrollable | Vertical | 2000 × 2400 | 3 |
+| Enrollable | Corredizas / puerta simple | 1500 × 2500 | 3 |
+| Enrollable | Puerta doble | 2700 × 2500 | 3 |
+
+Los ejes de las tablas enrollables no están rotulados en el PDF. Se interpreta vertical: columnas = ancho, filas = alto; puertas: filas = ancho, columnas = alto. Interpretación confirmada por el usuario durante la adaptación del catálogo.
+
+`catalog.js` contiene 310 combinaciones de tramos: 23 de plisadas y 287 de enrollables. Se selecciona el tramo de menor superficie que cubra ambas medidas, sin girarlas. Cada precio corresponde al tramo por unidad, sin mínimo inventado de m² ni interpolación de precios.
+
+## Precios pendientes
+
+No se utilizan las tarifas del PDF de 2025 ni los antiguos precios de ejemplo. En la sección de tarifas se puede introducir el precio real sin IVA, en USD, de cada tramo del modelo seleccionado. Importes sin configurar muestran «Pendiente»; si hay líneas sin precio, todo el total queda pendiente.
+
+Las tarifas se conservan en localStorage en este navegador. No se sincronizan con otros dispositivos ni se suben a GitHub. Las líneas ya añadidas conservan su tarifa: para aplicar un precio cambiado hay que eliminar la línea y añadirla de nuevo. Los presupuestos se vacían al recargar. No hay backend.
+
+El PDF indica dólares y precios sin IVA; no indica el porcentaje. La interfaz permite ajustar el IVA (21% inicial pendiente de confirmar). No se aplican recargos inventados por color ni descuentos: se consultan con el vendedor. Se admite un texto libre de color deseado. No incluye instalación ni envío.
+
+Permite imprimir o guardar PDF desde el navegador, incluso una selección con precios pendientes. Tipografías externas opcionales con fuentes locales de respaldo.
