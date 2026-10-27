@@ -1,5 +1,4 @@
 # mosquiteras
-
 Calculador de presupuestos en español, adaptable a móviles y sin dependencias de instalación.
 
 ## Desarrollo
