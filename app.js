@@ -1,6 +1,6 @@
-import { defaultPrices } from './prices.js?v=aluplexa-20261027';
-import { calculate, totals } from './calculator.js?v=aluplexa-20261027';
-import { catalog, productById, bandKey } from './catalog.js?v=aluplexa-20261027';
+import { defaultPrices } from './prices.js?v=aluplexa-contrast-20261027';
+import { calculate, totals } from './calculator.js?v=aluplexa-contrast-20261027';
+import { catalog, productById, bandKey } from './catalog.js?v=aluplexa-contrast-20261027';
 const $ = id => document.getElementById(id);
 const money = cents => cents === null ? 'Pendiente' : new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'USD', currencyDisplay: 'code' }).format(cents / 100);
 let items = [], prices = { ...defaultPrices };
